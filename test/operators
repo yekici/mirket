@@ -1,0 +1,16 @@
+dizi push element
+dizi merge dizi
+element in dizi
+string split " "
+dizi join " "
+
+pop dizi
+shift dizi
+first dizi
+last dizi
+length dizi
+not variable
+
+push(ref dizi , element)
+
+first dizi == 15 and length dizi > 3

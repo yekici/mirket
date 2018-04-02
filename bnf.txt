@@ -1,0 +1,33 @@
+factor          :   number
+                |   STRING
+                |   bool
+                |   NULL
+                |   identifier
+                |   LPAREN expr RPAREN
+                |   array
+                |   unary_operator factor
+
+
+identifier      :   variable
+
+number          :   (MINUS)? (0..9)+
+
+variable        :   id (LBRACKET expr RBRACKET)*
+
+id              :   (a..z | A..Z | UNDERSCORE | DOLLAR) (a..z | A..Z | UNDERSCORE | DOLLAR | 0..9)*
+
+bool            :   TRUE | FALSE
+
+array           :   LBRACKET (expr (COMMA expr)* ) RBRACKET
+
+operator        :   PLUS | MINUS | MUL | DIV | MOD | POW
+
+unary_operator  :   TYPEOF | NOT | LENGTH
+
+assignment      :   (operator)? ASSIGNMENT
+
+expr            :   HEAD ID assignment factor (operator expr)*
+                |   factor (operator expr)*
+
+statement       :   expr (SEMI expr)* SEMI | EOL
+
